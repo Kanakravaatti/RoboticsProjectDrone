@@ -1,0 +1,510 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/SandyGround.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/Road.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Pavement.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/buildings/protos/Windmill.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/buildings/protos/SmallManor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/manhole/protos/SquareManhole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Pine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Forest.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+}
+Viewpoint {
+  orientation 0.17489276827074243 0.06263419155858921 -0.9825932412012605 2.7063014877425804
+  position 2.946795374917191 2.171587360749566 1.4790019063809263
+  near 0.2
+  follow "Mavic 2 PRO"
+  followType "None"
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 400 400
+  tileSize 6 6
+  appearance SandyGround {
+    colorOverride 0 0 0
+  }
+}
+Solid {
+  translation -0.9298433772447465 0.38 0.04990189999999999
+  rotation -0.0032268647264635233 -0.09499210445630353 0.9954727959291503 4.041075323967451e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 2.437986464309099e-18 1.0078896348515066e-17 2.492162595235889e-16
+  angularVelocity -3.346551419383138e-16 1.5010452759539234e-18 -5.18987636144413e-18
+}
+Solid {
+  translation -1.52 0.38 0.04990189999999999
+  rotation 0.16529623633744536 -0.5999528420161803 -0.7827731099171609 9.930373352088211e-18
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -9.515198027729787e-18 3.7532408668722333e-19 2.522569961224029e-16
+  angularVelocity -6.913103135992949e-17 -1.2416307136374553e-16 2.1646673895582908e-17
+}
+Solid {
+  translation -1.26 0.1 0.04990189999999999
+  rotation 0.020449393584824435 -0.038316185992989193 0.9990564009068575 1.0351538511328286e-16
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -2.831893589623079e-18 -7.742281432115148e-18 2.631089501470899e-16
+  angularVelocity 1.9676229026279515e-16 -6.324929753546106e-17 -1.986159413757312e-17
+}
+Solid {
+  translation 0.2 2.18 0.0499019
+  rotation 0.8869945258850115 0.07359860352539627 -0.45587712885067494 1.9333549335282708e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 1.0948115327430647e-17 3.3327333221203398e-18 7.414074664477404e-17
+  angularVelocity -6.446929217376855e-17 3.3113299424899507e-16 1.6267005511834656e-17
+}
+Solid {
+  translation -2 0.65 0.04990189999999999
+  rotation 0.0825958471993167 -0.0451813809482323 0.9955584206067657 3.042973464377742e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 2.762560427362645e-18 -1.5562775179929173e-17 2.669948174094993e-16
+  angularVelocity 3.317417998768488e-16 1.9563634704539798e-16 -3.853811660666756e-18
+}
+Solid {
+  translation -1.26 0.66 0.04990189999999999
+  rotation -0.9638982951773549 -0.2618095512393875 -0.04853694916266625 2.89889239078764e-18
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -4.497105312595768e-18 -2.8593167218301312e-18 2.51002612721432e-16
+  angularVelocity -6.246912768113555e-17 -1.9886438172665287e-16 1.431147312797975e-17
+}
+Solid {
+  translation -2.12 0.25 0.04990189999999999
+  rotation -0.0073265516608903075 -0.16038709367890325 0.9870270015668239 4.9195572995357766e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -4.99422481592702e-18 4.2668173187960796e-18 2.6295690544538436e-16
+  angularVelocity 5.61319485332678e-19 -1.9881354801926912e-16 1.2801339720867123e-17
+}
+Solid {
+  translation 0.74 2.03 0.0499019
+  rotation -0.2530668800835506 -0.010710341231954024 0.9673894990103382 6.727444504373661e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -1.6775531669491864e-18 9.740868614961001e-18 6.380508664099337e-17
+  angularVelocity -1.9941041106352516e-16 -6.728515894009305e-17 2.2420526730784557e-17
+}
+Solid {
+  translation -2.68 1.51 0.049901899999999985
+  rotation -0.07663615105649338 -0.24007759923002167 0.9677239517027546 5.639996783528526e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 2.8954723969879577e-18 -3.152067780750942e-18 3.997205943711227e-16
+  angularVelocity 6.821238980941807e-17 1.289812536394266e-16 -1.204629500371837e-17
+}
+Solid {
+  translation 0.53 1.42 0.0499019
+  rotation -0.10756463909159278 0.06594506418623221 0.9920086173650758 2.3733787234364302e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(9)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 7.261180470984929e-18 1.114912150456902e-17 8.562486672438122e-17
+  angularVelocity -3.3599380563061898e-16 1.335985964220384e-16 -2.9304931646394725e-17
+}
+Solid {
+  translation -3.22 1.08 0.049901899999999985
+  rotation -0.07663615105649338 -0.24007759923002167 0.9677239517027546 5.639996783528526e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(10)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 2.8954723969879577e-18 -3.152067780750942e-18 3.997205943711227e-16
+  angularVelocity 6.821238980941807e-17 1.289812536394266e-16 -1.204629500371837e-17
+}
+Solid {
+  translation 0.16 1.31 0.0499019
+  rotation 0.059043970191702926 0.005264469167461693 0.9982415013153811 7.24264646915612e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(11)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -3.1595155829063104e-18 5.511950275073153e-18 8.432638607732636e-17
+  angularVelocity -4.647451979728701e-18 -6.414190812326486e-17 -9.994967005620885e-18
+}
+Solid {
+  translation -0.13 2.49 0.0499019
+  rotation 0.21362923794380723 -0.054685721127271956 0.9753830122574098 2.573273605802069e-18
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(12)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -4.795618423475721e-18 -3.11063722268274e-19 8.343313288367724e-17
+  angularVelocity -6.464067459732154e-17 -1.9846660578047124e-16 -2.493501783032425e-17
+}
+Solid {
+  translation -0.11 1.9 0.0499019
+  rotation -0.033436079537529854 0.03367975488217075 0.9988732165276216 5.319992328798303e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(13)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -2.319164119889824e-18 -6.60140296979014e-18 8.503158270456637e-17
+  angularVelocity 1.3601376016736017e-16 -6.654806336699438e-17 2.525095322193691e-17
+}
+Solid {
+  translation -3.46 0.5 0.04990189999999999
+  rotation 0.05217515683744456 -0.13416404274211602 0.9895846414754425 3.0666024348565427e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(14)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity 3.11193438224238e-18 -7.7114036413401e-18 2.665402850333572e-16
+  angularVelocity 1.9889084352256098e-16 1.3251333424587227e-16 5.6370631293533955e-18
+}
+Solid {
+  translation -2.75 2.47 0.04990189999999999
+  rotation 0.16457466295230777 -0.0018108429521432536 0.9863629662360286 7.745728344014396e-17
+  children [
+    Shape {
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(15)"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  linearVelocity -4.49844732409723e-18 5.944331897394668e-18 2.440905606474685e-16
+  angularVelocity -1.9738235853742541e-16 6.315755674843778e-17 -1.2321759886416395e-19
+}
+Road {
+  translation -43.8 9.2 0.01
+  rotation 0 0 1 -0.3926996938995747
+  width 3
+  numberOfLanes 1
+  rightBorder FALSE
+  leftBorder FALSE
+  wayPoints [
+    0 0 0
+    100 0 0
+    200 200 0
+  ]
+  splineSubdivision 8
+  appearance Pavement {
+    type "black stone"
+  }
+}
+Windmill {
+  translation -43.8656 -19.8433 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+}
+Windmill {
+  translation -44.258 -27.3356 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+  name "windmill(1)"
+}
+Windmill {
+  translation -46.2448 30.573 0
+  rotation -7.19228e-09 2.6842e-08 1 0.523601
+  name "windmill(2)"
+}
+Windmill {
+  translation -38.75 23.4 0
+  name "windmill(3)"
+}
+SmallManor {
+  translation -50.35 11.25 0
+  rotation 0 0 -1 0.392394
+}
+SquareManhole {
+  translation 0 0 -0.03
+}
+CardboardBox {
+  translation -0.730157 -1.22891 0.3
+  rotation 0 0 1 -1.8325953071795862
+}
+TeslaModel3Simple {
+  translation -41.5139 4.34169 0.31
+  rotation 0 0 1 -0.2618053071795865
+}
+Pine {
+  translation -14.0083 -14.4828 0
+  rotation 0 0 1 2.61799
+}
+Pine {
+  translation -19.6195 -24.3783 0
+  rotation 0 0 1 2.87979
+  name "pine tree(1)"
+}
+Pine {
+  translation -22.0129 6.20205 0
+  name "pine tree(3)"
+}
+Pine {
+  translation -10.6926 -25.1339 0
+  name "pine tree(4)"
+}
+Pine {
+  translation -14.3441 14.5621 0
+  name "pine tree(5)"
+}
+Pine {
+  translation -26.6328 -7.1707 0
+  name "pine tree(6)"
+}
+Pine {
+  translation -9.37029 14.0209 0
+  rotation 0 0 1 -2.6179953071795863
+  name "pine tree(2)"
+}
+Forest {
+  translation 0 0 -0.01
+  shape [
+    200 200
+    200 0
+    50 0
+    50 50
+    -50 50
+    -50 -50
+    50 -50
+    50 0
+    200 0
+    200 -200
+    -200 -200
+    -200 200
+  ]
+  density 0.01
+  type "cherry tree"
+  randomSeed 1
+  maxHeight 12
+  minHeight 6
+  maxRadius 6
+  minRadius 3
+}
+Mavic2Pro {
+  hidden linearVelocity_0 -1.014928005182851e-10 -5.0535403976426054e-11 1.6289172183107523e-13
+  hidden angularVelocity_0 4.117450958573831e-13 5.817229588899616e-14 -2.4128326493991826e-09
+  hidden translation_8 0.0412774 -0.00469654 -0.00405862
+  hidden rotation_8 0 0 1 0
+  hidden linearVelocity_8 1.555457138722472e-10 1.0951988737169952e-10 -6.027328448139016e-12
+  hidden angularVelocity_8 4.850886374609313e-10 -9.733103475450015e-10 1.3152646428164665e-08
+  hidden translation_9 0.000625212 -0.00530346 -0.0207448
+  hidden rotation_9 0 -1 0 8.585965806775119e-07
+  hidden linearVelocity_9 1.9657445753749284e-10 8.396073462051411e-11 3.070088419895541e-11
+  hidden angularVelocity_9 -1.6379653849276725e-08 -9.370723596289597e-09 1.3152657272144253e-08
+  hidden translation_10 0.00754686 0.0160388 -0.00586401
+  hidden rotation_10 -0.9999999999999999 0 0 7.884953353001448e-08
+  hidden linearVelocity_10 2.9783763025676846e-10 -1.6818448313450496e-10 -9.413377337880044e-12
+  hidden angularVelocity_10 -2.1619352022269326e-08 1.1524645400027772e-09 1.3973860926614426e-08
+  translation -0.08355337459173495 -0.03836788784677084 0.08570872787423818
+  rotation 0.03485615736840446 -0.02158160516782757 0.9991592879075333 2.033532744508607
+  bodySlot [
+    DistanceSensor {
+      translation -0.01 0 -0.06
+      rotation 0 -1 0 -1.3090053071795866
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "distance"
+      boundingObject Box {
+        size 0.01 0.01 0.01
+      }
+      lookupTable [
+        0 0 0
+        0.9 1000 0
+      ]
+    }
+    GPS {
+      translation -0.1 0 0
+      name "gps(2)"
+    }
+    GPS {
+      translation 1 0 0
+      name "gps(1)"
+    }
+  ]
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
