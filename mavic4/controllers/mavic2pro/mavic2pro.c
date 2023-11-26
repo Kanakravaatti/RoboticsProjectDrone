@@ -22,13 +22,12 @@
  * - Stabilize the camera.
  * - Control the robot using the computer keyboard.
  */
-
+#define DELAY_TIME 20.0
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
- 
 #include <webots/robot.h>
-
+#include <webots/distance_sensor.h>
 #include <webots/camera.h>
 #include <webots/compass.h>
 #include <webots/gps.h>
@@ -40,7 +39,6 @@
 
 #define SIGN(x) ((x) > 0) - ((x) < 0)
 #define CLAMP(value, low, high) ((value) < (low) ? (low) : ((value) > (high) ? (high) : (value)))
-
 
 int main(int argc, char **argv) {
   wb_robot_init();
@@ -72,6 +70,14 @@ int main(int argc, char **argv) {
   WbDeviceTag rear_left_motor = wb_robot_get_device("rear left propeller");
   WbDeviceTag rear_right_motor = wb_robot_get_device("rear right propeller");
   WbDeviceTag motors[4] = {front_left_motor, front_right_motor, rear_left_motor, rear_right_motor};
+  
+  
+  
+   WbDeviceTag distance_sensor = wb_robot_get_device("distance");
+
+  double speed= -1.0;
+    
+    
   int m;
   for (m = 0; m < 4; ++m) {
     wb_motor_set_position(motors[m], INFINITY);
@@ -106,9 +112,18 @@ int main(int argc, char **argv) {
   const double k_pitch_p = 30.0;          // P constant of the pitch PID.
 
   // Variables.
-  double target_altitude = 1.0;  // The target altitude. Can be changed by the user.
-  bool home = false; 
-  bool search = false; 
+ double target_altitude = 1.0;
+  bool home = false;
+
+ bool start_handled = false;
+    bool detected = false;
+    const double k_descend_altitude = 0.5;
+  
+
+     double start_time = wb_robot_get_time();
+     
+     
+      bool search = false; 
   bool in_destination = false;
   int n = 0;
   double search1[26][2];
@@ -129,10 +144,41 @@ int main(int argc, char **argv) {
     n = 25; 
   }
   searchh();
- 
+  
+  
   // Main loop
-  while (wb_robot_step(timestep) != -1) {
-    const double time = wb_robot_get_time();  // in seconds.
+ while (wb_robot_step(timestep) != -1) {
+        const double time = wb_robot_get_time();  // in seconds.
+        double distance_sensor_value = wb_distance_sensor_get_value(distance_sensor);
+        
+        printf("Distance to ground: %f\n", distance_sensor_value);
+
+        // Check if 10 seconds have passed and the initial action hasn't been handled
+        if (time - start_time >= DELAY_TIME && !start_handled) {
+            // Do something after 10 seconds
+            printf("10 seconds have passed. Performing additional action.\n");
+
+            // Enable the distance sensor
+            wb_distance_sensor_enable(distance_sensor, timestep);
+
+            // Update the start time for the next 10-second interval
+            start_time = wb_robot_get_time();
+
+            // Set the flag to indicate that the initial action has been handled
+            start_handled = true;
+        }
+
+        // Check the distance condition
+        if (distance_sensor_value < 1000.0 && !detected && start_handled) {
+            target_altitude = k_descend_altitude;
+            detected = true;
+             speed=0.5;
+            // Disable the distance sensor after detecting an obstacle
+            wb_distance_sensor_disable(distance_sensor);
+        }
+    
+
+
 
     // Retrieve robot position using the sensors.
     const double roll = wb_inertial_unit_get_roll_pitch_yaw(imu)[0];
@@ -140,15 +186,9 @@ int main(int argc, char **argv) {
     const double altitude = wb_gps_get_values(gps)[2];
     const double roll_velocity = wb_gyro_get_values(gyro)[0];
     const double pitch_velocity = wb_gyro_get_values(gyro)[1];
-    printf("x is equal to %f\n", wb_gps_get_values(gps)[0]);
+   
     // Blink the front LEDs alternatively with a 1 second rate.
-    const bool led_state = ((int)time) % 2;
-    wb_led_set(front_left_led, led_state);
-    wb_led_set(front_right_led, !led_state);
-    
-    
-    
-    // kotiin
+     // kotiin
     double x = wb_gps_get_values(gps)[0];
     double y = wb_gps_get_values(gps)[1];
     double x2 = wb_gps_get_values(gps2)[0];
@@ -226,7 +266,7 @@ int main(int argc, char **argv) {
       };
       if( difference < 5){
         if (distance > 2){
-          pitch_disturbance = -2.0;
+          pitch_disturbance = speed;
         }else if(distance > 0.3){
           pitch_disturbance = -0.5;
         }else if(distance > 0.0){
@@ -259,10 +299,11 @@ int main(int argc, char **argv) {
       
       if( difference < 10){
         if (distance > 2){
-          pitch_disturbance = -2.0;
+          pitch_disturbance = speed;
         }else if(distance > 0.3){
           pitch_disturbance = -0.5;
         }else if(distance > 0.0){
+        
           pitch_disturbance = 0.0;
         };
        };
@@ -270,6 +311,9 @@ int main(int argc, char **argv) {
        if (distance < 0.4 && in_destination == false){
          n = n - 1; 
          in_destination = true;
+         distance_sensor_value =1000;
+           detected = false;
+            wb_distance_sensor_enable(distance_sensor, timestep);
        };
        if (distance > 0.4 && in_destination == true){
           
@@ -307,13 +351,16 @@ int main(int argc, char **argv) {
         case (WB_KEYBOARD_SHIFT + WB_KEYBOARD_UP):
           
           printf("target altitude: %f [m]\n", target_altitude);
-          
+          target_altitude = 1.0;
           home = true;
+            speed=-1.0;
+      
+      
           search = false;
           break;
         case (WB_KEYBOARD_SHIFT + WB_KEYBOARD_DOWN):
           search = true;
-          
+        
           printf("target altitude: %f [m]\n", target_altitude);
           break;
       }
