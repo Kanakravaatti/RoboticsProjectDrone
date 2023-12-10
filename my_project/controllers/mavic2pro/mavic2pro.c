@@ -48,6 +48,12 @@ int main(int argc, char **argv) {
   WbDeviceTag RM = wb_robot_get_device("RM");
   WbDeviceTag RM1 = wb_robot_get_device("RM1");
   WbDeviceTag RM2 = wb_robot_get_device("RM2");
+  WbDeviceTag RM3 = wb_robot_get_device("RM3");
+  
+  WbDeviceTag PS = wb_robot_get_device("PS");
+  WbDeviceTag PS1 = wb_robot_get_device("PS1");
+  WbDeviceTag PS2 = wb_robot_get_device("PS2");
+  WbDeviceTag PS3 = wb_robot_get_device("PS3");
   
   wb_motor_set_position(RM, INFINITY);
   wb_motor_set_velocity(RM, 0.0);
@@ -55,6 +61,8 @@ int main(int argc, char **argv) {
   wb_motor_set_velocity(RM1, 0.0);
   wb_motor_set_position(RM2, INFINITY);
   wb_motor_set_velocity(RM2, 0.0);
+  //wb_motor_set_position(RM3, INFINITY);
+ // wb_motor_set_velocity(RM3, 0.0);
 
 
 
@@ -210,11 +218,15 @@ int main(int argc, char **argv) {
     
     wb_motor_set_velocity(RM, target_velocity);
     wb_motor_set_position(RM, target_position);
-    //wb_motor_set_velocity(RM3, target_position);
+    
     wb_motor_set_velocity(RM1, target_velocity);
     wb_motor_set_position(RM1, target_position);
+    
     wb_motor_set_velocity(RM2, target_velocity);
     wb_motor_set_position(RM2, target_position);
+    
+    wb_motor_set_velocity(RM3, target_velocity);
+    wb_motor_set_position(RM3, target_position);
     
   };
 
