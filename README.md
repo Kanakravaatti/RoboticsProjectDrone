@@ -1,1 +1,1 @@
-Group 1 robotic group project. Trash collecting drone.
+Group 1 robotics project. Trash collecting drone repo.
